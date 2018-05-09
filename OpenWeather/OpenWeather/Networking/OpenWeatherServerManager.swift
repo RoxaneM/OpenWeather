@@ -14,10 +14,20 @@ enum OpenWeatherError: Error {
     case invalidJSON(String)
     case invalidData
     case unknown
+    
+    var description: String {
+        switch self {
+        case .serverError(_, let message):
+            return message
+        default:
+            return "Something went wrong"
+        }
+    }
 }
 
 enum OpenWeatherErrorCode: Int {
     case success        = 200
+    case notFound       = 404
     case internalError  = 500
 
     case unknown = 0
@@ -61,8 +71,11 @@ class OpenWeatherServerManager {
                          forHTTPHeaderField: APIConstants.contentType)
         
         _ = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            
-            completion?(data, error)
+            if let error = OpenWeatherServerManager.validateResponse(response as? HTTPURLResponse) {
+                completion?(nil, error)
+            } else {
+                completion?(data, error)
+            }
 
         }.resume()
     }
@@ -83,7 +96,11 @@ class OpenWeatherServerManager {
         return nil
     }
 
-    private static func validateResponse(_ response: HTTPURLResponse) -> OpenWeatherError? {
+    private static func validateResponse(_ response: HTTPURLResponse?) -> OpenWeatherError? {
+        guard let response = response else {
+            return .serverError(.unknown, "No response")
+        }
+        
         let statusCode = OpenWeatherErrorCode(rawValue: response.statusCode) ?? .unknown
 
         switch statusCode {
@@ -91,9 +108,12 @@ class OpenWeatherServerManager {
             return nil
         case .internalError:
             return .serverError(statusCode, response.description)
+        case .notFound:
+            return .serverError(statusCode, "Data not found")
         case .unknown:
             fatalError("Unrecognized code was sent from server: \n \(response.description)")
         }
+        
     }
     
 }

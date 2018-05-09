@@ -21,7 +21,7 @@ class HomeViewController: BaseViewController {
     }
     
     private func loadData() {
-        bookmarkedCities = ["Lviv", "London"]
+        bookmarkedCities = ["Lviv", "London", "Blah-blah"]
         citiesTableView.reloadData()
     }
     

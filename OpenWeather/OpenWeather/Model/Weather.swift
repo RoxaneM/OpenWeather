@@ -12,8 +12,6 @@ struct Weather: Codable {
     let temperature: Float
     let pressure: Float
     let humidity: Float
-    //let description: String
-    //let icon: String
     
     var description: String {
         return "Humidity is: \(humidity), \nPressure is: \(pressure)"
