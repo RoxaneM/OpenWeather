@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-    @IBOutlet weak var citiesTableView: UITableView!
+    @IBOutlet weak var citiesTableView: PlaceholderTableView!
     
     var bookmarkedCities = [String]()
     
@@ -22,6 +22,10 @@ class HomeViewController: BaseViewController {
     private func loadData() {
         bookmarkedCities = ["Lviv", "London"]
         citiesTableView.reloadData()
+    }
+    
+    private func setupUI() {
+        citiesTableView.placeholderMessage = "OOPS!\n No bookmarked cities yet. Click '+' button to add city"
     }
     
     

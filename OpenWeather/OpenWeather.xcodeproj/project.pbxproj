@@ -22,6 +22,9 @@
 		768EC43820A38FD60082F8A8 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768EC43720A38FD60082F8A8 /* CityTableViewCell.swift */; };
 		768EC43B20A3908D0082F8A8 /* UIColor+OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768EC43920A3908C0082F8A8 /* UIColor+OpenWeather.swift */; };
 		768EC43C20A3908D0082F8A8 /* UIFont+OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768EC43A20A3908C0082F8A8 /* UIFont+OpenWeather.swift */; };
+		768EC44320A396FC0082F8A8 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768EC44020A396FC0082F8A8 /* NoDataView.swift */; };
+		768EC44420A396FC0082F8A8 /* PlaceholderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768EC44120A396FC0082F8A8 /* PlaceholderTableView.swift */; };
+		768EC44520A396FC0082F8A8 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768EC44220A396FC0082F8A8 /* NoDataView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		768EC43720A38FD60082F8A8 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		768EC43920A3908C0082F8A8 /* UIColor+OpenWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+OpenWeather.swift"; sourceTree = "<group>"; };
 		768EC43A20A3908C0082F8A8 /* UIFont+OpenWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+OpenWeather.swift"; sourceTree = "<group>"; };
+		768EC44020A396FC0082F8A8 /* NoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
+		768EC44120A396FC0082F8A8 /* PlaceholderTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTableView.swift; sourceTree = "<group>"; };
+		768EC44220A396FC0082F8A8 /* NoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				768EC42820A32A940082F8A8 /* Extensions */,
+				768EC43E20A396D30082F8A8 /* CustomViews */,
 				768EC42520A3279F0082F8A8 /* Networking */,
 				768EC42D20A340260082F8A8 /* Model */,
 				768EC43020A38E360082F8A8 /* ViewControllers */,
@@ -142,6 +149,24 @@
 			path = CityWeatherVC;
 			sourceTree = "<group>";
 		};
+		768EC43E20A396D30082F8A8 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				768EC43F20A396FC0082F8A8 /* PlaceholderTableView */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		768EC43F20A396FC0082F8A8 /* PlaceholderTableView */ = {
+			isa = PBXGroup;
+			children = (
+				768EC44120A396FC0082F8A8 /* PlaceholderTableView.swift */,
+				768EC44020A396FC0082F8A8 /* NoDataView.swift */,
+				768EC44220A396FC0082F8A8 /* NoDataView.xib */,
+			);
+			path = PlaceholderTableView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				768EC41E20A326C30082F8A8 /* LaunchScreen.storyboard in Resources */,
+				768EC44520A396FC0082F8A8 /* NoDataView.xib in Resources */,
 				768EC41B20A326C30082F8A8 /* Assets.xcassets in Resources */,
 				768EC41620A326C10082F8A8 /* Main.storyboard in Resources */,
 			);
@@ -220,6 +246,8 @@
 				768EC41920A326C10082F8A8 /* OpenWeather.xcdatamodeld in Sources */,
 				768EC43420A38E720082F8A8 /* CityWeatherViewController.swift in Sources */,
 				768EC43C20A3908D0082F8A8 /* UIFont+OpenWeather.swift in Sources */,
+				768EC44420A396FC0082F8A8 /* PlaceholderTableView.swift in Sources */,
+				768EC44320A396FC0082F8A8 /* NoDataView.swift in Sources */,
 				768EC43220A38E5B0082F8A8 /* HomeViewController.swift in Sources */,
 				768EC42720A327D30082F8A8 /* OpenWeatherServerManager.swift in Sources */,
 				768EC41120A326C10082F8A8 /* AppDelegate.swift in Sources */,

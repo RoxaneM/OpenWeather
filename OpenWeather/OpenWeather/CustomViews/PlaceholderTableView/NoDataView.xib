@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="jZE-xF-V74" customClass="NoDataView" customModule="OpenWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="599"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohx-cD-AcA">
+                    <rect key="frame" x="100" y="299.5" width="234" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="yNV-Wh-BiP" firstAttribute="trailing" secondItem="ohx-cD-AcA" secondAttribute="trailing" constant="100" id="33L-wc-NJb"/>
+                <constraint firstItem="ohx-cD-AcA" firstAttribute="leading" secondItem="yNV-Wh-BiP" secondAttribute="leading" constant="100" id="KGJ-uX-DEZ"/>
+                <constraint firstItem="ohx-cD-AcA" firstAttribute="centerY" secondItem="yNV-Wh-BiP" secondAttribute="centerY" id="Ynq-XE-7BC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="yNV-Wh-BiP"/>
+            <connections>
+                <outlet property="centerYConstraint" destination="Ynq-XE-7BC" id="Wje-pT-1rW"/>
+                <outlet property="messageLabel" destination="ohx-cD-AcA" id="SkR-yw-vdB"/>
+            </connections>
+            <point key="canvasLocation" x="71" y="-151.5"/>
+        </view>
+    </objects>
+</document>

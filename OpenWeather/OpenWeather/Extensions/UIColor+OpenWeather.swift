@@ -22,6 +22,7 @@ extension UIColor {
     struct Home {
         static let CityCellTextColor = OpenWeatherApp.DarkGreyColor
         static let CityCellBackgroundColor = OpenWeatherApp.WhiteColor
+        static let NoDataMessageTextColor = OpenWeatherApp.LightGreyColor
     }
 
 // MARK: - Auxiliary
