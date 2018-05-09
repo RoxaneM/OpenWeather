@@ -15,14 +15,13 @@ struct Weather: Codable {
     //let description: String
     //let icon: String
     
+    var description: String {
+        return "Humidity is: \(humidity), \nPressure is: \(pressure)"
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ForecastCodingKeys.self)
-        
-//        let weatherArray = try container.nestedUnkeyedContainer(forKey: .weather)
-//
-//        description = try weather.decode(String.self, forKey: .description)
-//        icon = try weather.decode(String.self, forKey: .icon)
-        
+
         let main = try container.nestedContainer(keyedBy: MainCodingKeys.self,
                                                  forKey: .main)
         temperature = try main.decode(Float.self, forKey: .temparature)

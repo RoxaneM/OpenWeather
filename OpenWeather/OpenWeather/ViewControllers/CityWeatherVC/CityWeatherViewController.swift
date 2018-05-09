@@ -53,7 +53,7 @@ class CityWeatherViewController: BaseViewController {
         cityLabel.text = city
         dateLabel.text = Date().weekdayDescription()
         temperatureLabel.text = String(format: "%.1f°", weather.temperature)
-        //descriptionLabel.text = weather.description
+        descriptionLabel.text = weather.description
     }
     
     private func setupLabels() {
