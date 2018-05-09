@@ -20,6 +20,14 @@ enum OpenWeatherErrorCode: Int {
     case unknown = 0
 }
 
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+}
+
+typealias Parameters = [String: Any]
+
 class OpenWeatherServerManager {
     private static let serverURL = "http://api.openweathermap.org"
     private static let apiVersion = "data/2.5"
@@ -36,25 +44,33 @@ class OpenWeatherServerManager {
 
 
     func sendRequest(endpoint: String,
-                     method: String = "GET",
-                     parameters: [String: Any] = [String: Any]()) {
+                     method: HTTPMethod = .get,
+                     parameters: Parameters? = nil) {
         guard let url = url(with: endpoint, parameters: parameters) else {
             return
         }
 
         let request = NSMutableURLRequest(url: url)
-        request.httpMethod = method
+        request.httpMethod = method.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         _ = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             
-            print("response data:", response, data)
+            guard let data = data else { return }
+            do {
+                let weather = try JSONDecoder().decode(Weather.self, from: data)
+                
+                print("response data:", String(data: data, encoding: .utf8)!)
+            } catch let error {
+                print("Error:", error)
+            }
         }.resume()
     }
     
-    private func url(with endpoint: String, parameters: [String: Any]) -> URL? {
+    private func url(with endpoint: String, parameters: Parameters?) -> URL? {
         let urlString = baseURL + endpoint
-        let fullParameters = parameters.dictionary(byAppending: ["appid": appID])
+        let existingParameters = parameters ?? Parameters()
+        let fullParameters = existingParameters.dictionary(byAppending: ["appid": appID])
         
         if var components = URLComponents(string: urlString) {
             components.queryItems = fullParameters.map { key, value -> URLQueryItem in
