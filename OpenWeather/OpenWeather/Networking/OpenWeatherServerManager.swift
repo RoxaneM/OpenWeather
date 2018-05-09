@@ -43,7 +43,7 @@ class OpenWeatherServerManager {
 
 
 
-    func sendRequest(endpoint: String,
+    func sendRequest(endpoint: APIConstants.Endpoint,
                      method: HTTPMethod = .get,
                      parameters: Parameters? = nil) {
         guard let url = url(with: endpoint, parameters: parameters) else {
@@ -52,7 +52,8 @@ class OpenWeatherServerManager {
 
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = method.rawValue
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(APIConstants.applicationJson,
+                         forHTTPHeaderField: APIConstants.contentType)
         
         _ = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             
@@ -67,10 +68,10 @@ class OpenWeatherServerManager {
         }.resume()
     }
     
-    private func url(with endpoint: String, parameters: Parameters?) -> URL? {
-        let urlString = baseURL + endpoint
+    private func url(with endpoint: APIConstants.Endpoint, parameters: Parameters?) -> URL? {
+        let urlString = baseURL + endpoint.rawValue
         let existingParameters = parameters ?? Parameters()
-        let fullParameters = existingParameters.dictionary(byAppending: ["appid": appID])
+        let fullParameters = existingParameters.dictionary(byAppending: [APIConstants.appID: appID])
         
         if var components = URLComponents(string: urlString) {
             components.queryItems = fullParameters.map { key, value -> URLQueryItem in

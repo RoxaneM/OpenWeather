@@ -17,15 +17,15 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohx-cD-AcA">
-                    <rect key="frame" x="100" y="299.5" width="234" height="20.5"/>
+                    <rect key="frame" x="20" y="299.5" width="394" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="yNV-Wh-BiP" firstAttribute="trailing" secondItem="ohx-cD-AcA" secondAttribute="trailing" constant="100" id="33L-wc-NJb"/>
-                <constraint firstItem="ohx-cD-AcA" firstAttribute="leading" secondItem="yNV-Wh-BiP" secondAttribute="leading" constant="100" id="KGJ-uX-DEZ"/>
+                <constraint firstItem="yNV-Wh-BiP" firstAttribute="trailing" secondItem="ohx-cD-AcA" secondAttribute="trailing" constant="20" id="33L-wc-NJb"/>
+                <constraint firstItem="ohx-cD-AcA" firstAttribute="leading" secondItem="yNV-Wh-BiP" secondAttribute="leading" constant="20" id="KGJ-uX-DEZ"/>
                 <constraint firstItem="ohx-cD-AcA" firstAttribute="centerY" secondItem="yNV-Wh-BiP" secondAttribute="centerY" id="Ynq-XE-7BC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

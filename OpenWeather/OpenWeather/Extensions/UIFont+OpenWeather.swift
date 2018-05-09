@@ -17,6 +17,6 @@ extension UIFont {
 
     struct Home {
         static let CityCellFont = UIFont(name: Helvetica.bold, size: 18.0)
-        static let NoDataMessageFont = UIFont(name: Helvetica.light, size: 16.0)
+        static let NoDataMessageFont = UIFont(name: Helvetica.normal, size: 16.0)
     }
 }

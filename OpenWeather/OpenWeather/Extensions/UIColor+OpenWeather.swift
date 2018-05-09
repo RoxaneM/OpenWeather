@@ -16,7 +16,7 @@ extension UIColor {
         static let GreenColor = UIColor(hex: 0x5FD98C)
         static let GreyColor = UIColor(hex: 0xA0A0A0)
         static let DarkGreyColor = UIColor(hex: 0x526173)
-        static let LightGreyColor = UIColor(hex: 0xF0F0F0)
+        static let LightGreyColor = UIColor(hex: 0xD0D0D0)
     }
 
     struct Home {

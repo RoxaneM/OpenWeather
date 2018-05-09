@@ -15,17 +15,18 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         
         loadData()
     }
     
     private func loadData() {
-        bookmarkedCities = ["Lviv", "London"]
+        bookmarkedCities = [String]()//["Lviv", "London"]
         citiesTableView.reloadData()
     }
     
     private func setupUI() {
-        citiesTableView.placeholderMessage = "OOPS!\n No bookmarked cities yet. Click '+' button to add city"
+        citiesTableView.placeholderMessage = DisplayMessages.noCitiesMessage
     }
     
     
@@ -42,7 +43,7 @@ class HomeViewController: BaseViewController {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookmarkedCities.count
     }
@@ -54,6 +55,13 @@ extension HomeViewController: UITableViewDataSource {
         let cell = reuseCell ?? CityTableViewCell()
         cell.city = bookmarkedCities[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            bookmarkedCities.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
 }

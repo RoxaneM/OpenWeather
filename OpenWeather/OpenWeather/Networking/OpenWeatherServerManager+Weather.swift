@@ -10,7 +10,7 @@ import Foundation
 
 extension OpenWeatherServerManager {
     func getWeather(for city: String) {
-        let parameters = ["q": city]
-        self.sendRequest(endpoint: "/weather", parameters: parameters)
+        let parameters = [APIConstants.city: city]
+        self.sendRequest(endpoint: .weather, parameters: parameters)
     }
 }
