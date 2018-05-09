@@ -15,6 +15,8 @@ class CityWeatherViewController: BaseViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var city: String = "" {
         didSet {
             cityLabel?.text = city
@@ -29,12 +31,27 @@ class CityWeatherViewController: BaseViewController {
     }
     
     private func loadData() {
-        OpenWeatherServerManager.shared.getWeather(for: city)
+        OpenWeatherServerManager.shared.getWeather(for: city) { [weak self] weather, error in
+            DispatchQueue.main.async{
+                guard error == nil, let weather = weather else {
+                    let message = error?.localizedDescription ?? ErrorAlert.NoWeatherErrorMessage
+                    self?.showAlert(title: ErrorAlert.NoWeatherErrorTitle, message: message)
+                    return
+                }
+                
+                self?.update(with: weather)
+            }
+        }
+    }
+    
+    private func update(with weather: Weather) {
+        cityLabel.text = city
+        dateLabel.text = Date().weekdayDescription()
+        temperatureLabel.text = String(format: "%.1f°", weather.temperature)
+        //descriptionLabel.text = weather.description
     }
     
     private func setupLabels() {
-        cityLabel.text = city
-        
         let labels = [cityLabel, dateLabel, temperatureLabel, descriptionLabel]
         
         for label in labels {
@@ -45,6 +62,15 @@ class CityWeatherViewController: BaseViewController {
         
         cityLabel.font = UIFont.CityWeather.CityNameFont
         temperatureLabel.font = UIFont.CityWeather.TemperatureFont
+        
+        loadPlaceholderValues()
+    }
+    
+    private func loadPlaceholderValues() {
+        cityLabel.text = city
+        dateLabel.text = Date().weekdayDescription()
+        temperatureLabel.text = "0°"
+        descriptionLabel.text = "-"
     }
 
 }

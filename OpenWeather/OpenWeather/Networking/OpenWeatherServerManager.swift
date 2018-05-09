@@ -10,7 +10,10 @@ import Foundation
 
 enum OpenWeatherError: Error {
     case serverError(OpenWeatherErrorCode, String)
+    case invalidURL
     case invalidJSON(String)
+    case invalidData
+    case unknown
 }
 
 enum OpenWeatherErrorCode: Int {
@@ -45,8 +48,10 @@ class OpenWeatherServerManager {
 
     func sendRequest(endpoint: APIConstants.Endpoint,
                      method: HTTPMethod = .get,
-                     parameters: Parameters? = nil) {
+                     parameters: Parameters? = nil,
+                     completion: ((Data?, Error?) -> Void)? = nil) {
         guard let url = url(with: endpoint, parameters: parameters) else {
+            completion?(nil, OpenWeatherError.invalidURL)
             return
         }
 
@@ -57,14 +62,8 @@ class OpenWeatherServerManager {
         
         _ = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             
-            guard let data = data else { return }
-            do {
-                let weather = try JSONDecoder().decode(Weather.self, from: data)
-                
-                print("response data:", String(data: data, encoding: .utf8)!)
-            } catch let error {
-                print("Error:", error)
-            }
+            completion?(data, error)
+
         }.resume()
     }
     

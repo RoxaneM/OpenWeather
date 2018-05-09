@@ -22,6 +22,13 @@ struct APIConstants {
     }
     
 }
+
+
 struct DisplayMessages {
     static let noCitiesMessage = "OOPS!\n No bookmarked cities yet. Click '+' button to add city"
+}
+
+struct ErrorAlert {
+    static let NoWeatherErrorTitle = "Error getting weather"
+    static let NoWeatherErrorMessage = "Could not load data for this city"
 }
