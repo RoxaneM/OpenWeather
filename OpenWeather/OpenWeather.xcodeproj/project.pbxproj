@@ -13,6 +13,9 @@
 		768EC41920A326C10082F8A8 /* OpenWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 768EC41720A326C10082F8A8 /* OpenWeather.xcdatamodeld */; };
 		768EC41B20A326C30082F8A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768EC41A20A326C30082F8A8 /* Assets.xcassets */; };
 		768EC41E20A326C30082F8A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 768EC41C20A326C30082F8A8 /* LaunchScreen.storyboard */; };
+		768EC42720A327D30082F8A8 /* OpenWeatherServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768EC42620A327D30082F8A8 /* OpenWeatherServerManager.swift */; };
+		768EC42A20A32A9E0082F8A8 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768EC42920A32A9E0082F8A8 /* Dictionary+Extension.swift */; };
+		768EC42C20A32D1B0082F8A8 /* OpenWeatherServerManager+Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768EC42B20A32D1B0082F8A8 /* OpenWeatherServerManager+Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		768EC41A20A326C30082F8A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		768EC41D20A326C30082F8A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		768EC41F20A326C30082F8A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		768EC42620A327D30082F8A8 /* OpenWeatherServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherServerManager.swift; sourceTree = "<group>"; };
+		768EC42920A32A9E0082F8A8 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
+		768EC42B20A32D1B0082F8A8 /* OpenWeatherServerManager+Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OpenWeatherServerManager+Weather.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 		768EC40F20A326C10082F8A8 /* OpenWeather */ = {
 			isa = PBXGroup;
 			children = (
+				768EC42820A32A940082F8A8 /* Extensions */,
+				768EC42520A3279F0082F8A8 /* Networking */,
 				768EC41020A326C10082F8A8 /* AppDelegate.swift */,
 				768EC41220A326C10082F8A8 /* ViewController.swift */,
 				768EC41420A326C10082F8A8 /* Main.storyboard */,
@@ -65,6 +73,23 @@
 				768EC41720A326C10082F8A8 /* OpenWeather.xcdatamodeld */,
 			);
 			path = OpenWeather;
+			sourceTree = "<group>";
+		};
+		768EC42520A3279F0082F8A8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				768EC42620A327D30082F8A8 /* OpenWeatherServerManager.swift */,
+				768EC42B20A32D1B0082F8A8 /* OpenWeatherServerManager+Weather.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		768EC42820A32A940082F8A8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				768EC42920A32A9E0082F8A8 /* Dictionary+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				768EC42C20A32D1B0082F8A8 /* OpenWeatherServerManager+Weather.swift in Sources */,
 				768EC41320A326C10082F8A8 /* ViewController.swift in Sources */,
 				768EC41920A326C10082F8A8 /* OpenWeather.xcdatamodeld in Sources */,
+				768EC42720A327D30082F8A8 /* OpenWeatherServerManager.swift in Sources */,
 				768EC41120A326C10082F8A8 /* AppDelegate.swift in Sources */,
+				768EC42A20A32A9E0082F8A8 /* Dictionary+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
