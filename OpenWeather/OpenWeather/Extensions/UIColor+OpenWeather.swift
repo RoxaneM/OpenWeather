@@ -31,6 +31,7 @@ extension UIColor {
     
     struct CityWeather {
         static let GeneralInfoTextColor = OpenWeatherApp.DarkGreyColor
+        static let ActivityIndicatorColor = OpenWeatherApp.DarkGreyColor
     }
 
 // MARK: - Auxiliary

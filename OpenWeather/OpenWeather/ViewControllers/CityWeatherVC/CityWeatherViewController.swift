@@ -27,12 +27,17 @@ class CityWeatherViewController: BaseViewController {
         super.viewDidLoad()
 
         setupLabels()
+        setupActivityIndicator()
         loadData()
     }
     
     private func loadData() {
+        activityIndicator.startAnimating()
+        
         OpenWeatherServerManager.shared.getWeather(for: city) { [weak self] weather, error in
             DispatchQueue.main.async{
+                self?.activityIndicator.stopAnimating()
+                
                 guard error == nil, let weather = weather else {
                     let message = error?.localizedDescription ?? ErrorAlert.NoWeatherErrorMessage
                     self?.showAlert(title: ErrorAlert.NoWeatherErrorTitle, message: message)
@@ -64,6 +69,11 @@ class CityWeatherViewController: BaseViewController {
         temperatureLabel.font = UIFont.CityWeather.TemperatureFont
         
         loadPlaceholderValues()
+    }
+    
+    private func setupActivityIndicator() {
+        activityIndicator.color = UIColor.CityWeather.ActivityIndicatorColor
+        activityIndicator.hidesWhenStopped = true
     }
     
     private func loadPlaceholderValues() {
