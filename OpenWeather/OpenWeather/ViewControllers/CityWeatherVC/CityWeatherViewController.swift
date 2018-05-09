@@ -11,6 +11,9 @@ import UIKit
 class CityWeatherViewController: BaseViewController {
     
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var city: String = "" {
         didSet {
@@ -21,9 +24,27 @@ class CityWeatherViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupLabels()
+        loadData()
+    }
+    
+    private func loadData() {
+        OpenWeatherServerManager.shared.getWeather(for: city)
+    }
+    
+    private func setupLabels() {
         cityLabel.text = city
         
-        OpenWeatherServerManager.shared.getWeather(for: "Lviv")
+        let labels = [cityLabel, dateLabel, temperatureLabel, descriptionLabel]
+        
+        for label in labels {
+            label?.textColor = UIColor.CityWeather.GeneralInfoTextColor
+            label?.textAlignment = .center
+            label?.font = UIFont.CityWeather.GeneralInfoFont
+        }
+        
+        cityLabel.font = UIFont.CityWeather.CityNameFont
+        temperatureLabel.font = UIFont.CityWeather.TemperatureFont
     }
 
 }

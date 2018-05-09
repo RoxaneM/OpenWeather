@@ -12,13 +12,13 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        setupNavigationBar()
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.tintColor = UIColor.NavigationBar.tintColor
     }
 
 

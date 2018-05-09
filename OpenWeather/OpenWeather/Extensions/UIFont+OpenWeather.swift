@@ -19,4 +19,10 @@ extension UIFont {
         static let CityCellFont = UIFont(name: Helvetica.bold, size: 18.0)
         static let NoDataMessageFont = UIFont(name: Helvetica.normal, size: 16.0)
     }
+    
+    struct CityWeather {
+        static let CityNameFont = UIFont(name: Helvetica.bold, size: 26.0)
+        static let GeneralInfoFont = UIFont(name: Helvetica.normal, size: 18.0)
+        static let TemperatureFont = UIFont(name: Helvetica.bold, size: 42.0)
+    }
 }

@@ -81,8 +81,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lf-mL-kvr">
-                                <rect key="frame" x="166" y="101" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lf-mL-kvr">
+                                <rect key="frame" x="172" y="101" width="30.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHn-AI-Vab">
+                                <rect key="frame" x="164" y="130" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NL4-fI-AhR">
+                                <rect key="frame" x="143.5" y="200" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3N-IM-Pu6">
+                                <rect key="frame" x="139" y="159" width="97.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -91,12 +109,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4Lf-mL-kvr" firstAttribute="centerX" secondItem="Yrl-2k-e7r" secondAttribute="centerX" id="MHu-j6-hoU"/>
+                            <constraint firstItem="NL4-fI-AhR" firstAttribute="centerX" secondItem="Yrl-2k-e7r" secondAttribute="centerX" id="XtH-uw-SBS"/>
+                            <constraint firstItem="NL4-fI-AhR" firstAttribute="top" secondItem="R3N-IM-Pu6" secondAttribute="bottom" constant="20" id="cvC-Gr-ouP"/>
+                            <constraint firstItem="R3N-IM-Pu6" firstAttribute="top" secondItem="cHn-AI-Vab" secondAttribute="bottom" constant="8" id="dY3-7d-y69"/>
+                            <constraint firstItem="cHn-AI-Vab" firstAttribute="centerX" secondItem="Yrl-2k-e7r" secondAttribute="centerX" id="izr-oC-FUQ"/>
+                            <constraint firstItem="R3N-IM-Pu6" firstAttribute="centerX" secondItem="Yrl-2k-e7r" secondAttribute="centerX" id="l6t-uG-cto"/>
                             <constraint firstItem="4Lf-mL-kvr" firstAttribute="top" secondItem="Yrl-2k-e7r" secondAttribute="top" constant="37" id="mg9-zv-0ml"/>
+                            <constraint firstItem="cHn-AI-Vab" firstAttribute="top" secondItem="4Lf-mL-kvr" secondAttribute="bottom" constant="8" id="re1-Jv-0L6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yrl-2k-e7r"/>
                     </view>
                     <connections>
                         <outlet property="cityLabel" destination="4Lf-mL-kvr" id="eGt-Cb-ShU"/>
+                        <outlet property="dateLabel" destination="cHn-AI-Vab" id="pd2-gp-v5a"/>
+                        <outlet property="descriptionLabel" destination="NL4-fI-AhR" id="StX-h6-ISe"/>
+                        <outlet property="temperatureLabel" destination="R3N-IM-Pu6" id="1dk-tv-Kgv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FI9-rG-By7" userLabel="First Responder" sceneMemberID="firstResponder"/>

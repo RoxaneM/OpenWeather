@@ -18,11 +18,19 @@ extension UIColor {
         static let DarkGreyColor = UIColor(hex: 0x526173)
         static let LightGreyColor = UIColor(hex: 0xD0D0D0)
     }
+    
+    struct NavigationBar {
+        static let tintColor = OpenWeatherApp.DarkGreyColor
+    }
 
     struct Home {
         static let CityCellTextColor = OpenWeatherApp.DarkGreyColor
         static let CityCellBackgroundColor = OpenWeatherApp.WhiteColor
         static let NoDataMessageTextColor = OpenWeatherApp.LightGreyColor
+    }
+    
+    struct CityWeather {
+        static let GeneralInfoTextColor = OpenWeatherApp.DarkGreyColor
     }
 
 // MARK: - Auxiliary
