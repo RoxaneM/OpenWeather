@@ -39,8 +39,8 @@ class CityWeatherViewController: BaseViewController {
                 self?.activityIndicator.stopAnimating()
                 
                 guard error == nil, let weather = weather else {
-                    let message = error?.description ?? ErrorAlert.NoWeatherErrorMessage
-                    self?.showAlert(title: ErrorAlert.NoWeatherErrorTitle, message: message)
+                    let message = error?.description ?? Alert.NoWeatherErrorMessage
+                    self?.showAlert(title: Alert.NoWeatherErrorTitle, message: message)
                     return
                 }
                 

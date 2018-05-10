@@ -21,7 +21,8 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func addCityButtonTapped(_ sender: Any) {
-        showInputAlert(title: "Enter city", placeholder: "city") { [weak self] cityName in
+        showInputAlert(title: Alert.EnterCityTitle,
+                       placeholder: Alert.EnterCityPlaceholder) { [weak self] cityName in
             self?.addCity(city: cityName)
         }
     }
