@@ -22,6 +22,19 @@ class BaseViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func showInputAlert(title: String, placeholder: String, completion: @escaping ((String) -> Void)) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = placeholder
+        }
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] _ in
+            let info = alert?.textFields![0].text
+            completion(info ?? "")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 
     private func setupNavigationBar() {
         self.navigationController?.navigationBar.tintColor = UIColor.NavigationBar.tintColor

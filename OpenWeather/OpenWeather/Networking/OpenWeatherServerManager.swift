@@ -113,7 +113,6 @@ class OpenWeatherServerManager {
         case .unknown:
             fatalError("Unrecognized code was sent from server: \n \(response.description)")
         }
-        
     }
     
 }

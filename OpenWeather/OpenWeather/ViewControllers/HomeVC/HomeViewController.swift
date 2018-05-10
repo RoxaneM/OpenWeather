@@ -12,12 +12,18 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var citiesTableView: PlaceholderTableView!
     
     var bookmarkedCities = [String]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
         loadData()
+    }
+    
+    @IBAction func addCityButtonTapped(_ sender: Any) {
+        showInputAlert(title: "Enter city", placeholder: "city") { [weak self] cityName in
+            self?.addCity(city: cityName)
+        }
     }
     
     private func loadData() {
@@ -27,6 +33,13 @@ class HomeViewController: BaseViewController {
     
     private func setupUI() {
         citiesTableView.placeholderMessage = DisplayMessages.noCitiesMessage
+    }
+    
+    private func addCity(city: String) {
+        let nextIndexPath = IndexPath(row: bookmarkedCities.count, section: 0)
+        bookmarkedCities.append(city)
+        
+        citiesTableView.insertRows(at: [nextIndexPath], with: .bottom)
     }
     
     

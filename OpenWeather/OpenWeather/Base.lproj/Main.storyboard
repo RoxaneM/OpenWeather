@@ -66,7 +66,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="7VE-MA-jOM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qPL-08-ZLm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qPL-08-ZLm">
+                            <connections>
+                                <action selector="addCityButtonTapped:" destination="BYZ-38-t0r" id="iCq-Xp-BMl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="citiesTableView" destination="1Tc-5l-hsg" id="pkc-Ri-N9H"/>
